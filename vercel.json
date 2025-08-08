@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/*.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "lib/**",
+          "prisma/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/bot",
+      "dest": "/api/bot.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/api/search-query",
+      "dest": "/api/search-query.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/api/search-word",
+      "dest": "/api/search-word.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/api/morning-promt",
+      "dest": "/api/morning-promt.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/evening-recap",
+      "dest": "/api/evening-recap.js",
+      "methods": ["GET"]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/morning-promt",
+      "schedule": "30 3 * * *"
+    },
+    {
+      "path": "/api/evening-recap",
+      "schedule": "30 17 * * *"
+    }
+  ]
+}
