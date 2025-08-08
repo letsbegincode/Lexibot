@@ -47,7 +47,7 @@ A Telegram bot powered by AI that helps users build and manage their vocabulary 
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/letsbegincode/Lexibot.git
 cd collaborative-bot-main
 ```
 
